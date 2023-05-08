@@ -103,7 +103,7 @@
            :expand-on-click-node="false"
            @node-click="handleNodeClick">
            <div class="customer-tree-node" slot-scope="{node, data}">
-             <span v-if="data.children.length == 0">
+             <span v-if="data.children.length === 0">
                <i class="el-icon-document" style="color: #8c8c8c; font-size: 18px"/>
              </span>
              <span v-else @click.stop="changeIcon(data)">
@@ -123,7 +123,6 @@
 
 import menuApi from "@/api/menu";
 import SystemDialog from "@/components/system/SystemDialog.vue";
-import departmentApi from "@/api/department";
 
 export default {
   name: "menuList",
@@ -163,13 +162,13 @@ export default {
         code: [{required: true, trigger: "blur", message: "请输入权限字段"}]
       },
       parentDialog: {
-        title:"新增窗口",
+        title:"选择所属菜单",
         visible: false,
-        width: 630,
-        height: 270
+        width: 280,
+        height: 450
       },
       defaultProps: {
-        children: "children",
+        children: 'children',
         label: 'label'
       },
       parentMenuList: []//所属菜单列表
@@ -278,7 +277,8 @@ export default {
      * 关闭取消按钮点击事件
      */
     onParentClose() {
-      console.log("关闭取消按钮点击事件")
+      console.log(+ "关闭取消按钮点击事件")
+
       this.parentDialog.visible = false;
     },
     /**
@@ -286,11 +286,7 @@ export default {
      */
     onParentConfirm() {
       console.log("确认按钮点击事件，")
-      this.$refs.menuForm.validate((valid) => {
-        if (valid){
-          this.parentDialog.visible = false;
-        }
-      })
+        this.parentDialog.visible = false;
     },
     changeIcon(data) {
       data.open = !data.open;
@@ -301,6 +297,7 @@ export default {
      * @param data
      */
     handleNodeClick(data) {
+      // console.log(this.menu.parentName)
       this.menu.parentId = data.id;
       this.menu.parentName = data.label;
     }
