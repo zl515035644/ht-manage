@@ -6,17 +6,17 @@ import http from '@/utils/request'
  * @returns {*}
  */
 export async function login(data) {
-  return await  http.login("/api/user/login", data);
+  return http.login("/api/user/login", data);
 }
 export async function getInfo() {
-  return await http.get("/api/sysUser/getInfo");
+  return http.get("/api/sysUser/getInfo");
 }
 export async function logout(param) {
-  return await  http.post("/api/sysUser/logout", param);
+  return http.post("/api/sysUser/logout", param);
 }
 
 export async function getMenuList() {
-  return await  http.get("/api/sysUser/getMenuList");
+  return http.get("/api/sysUser/getMenuList");
 }
 // export function login(data) {
 //   return request({

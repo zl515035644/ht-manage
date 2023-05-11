@@ -12,6 +12,7 @@ import Layout from "@/layout";
  * @param route
  */
 function hasPermission(roles, route) {
+  console.log("这是谁的")
   if (route.meta && route.meta.roles) {
     return roles.some(role => route.meta.roles.includes(role))
   } else {

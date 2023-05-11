@@ -5,13 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ef6e2cc0-f2d9-4699-a957-32c78e1f7645" name="更改" comment="">
-      <change afterPath="$PROJECT_DIR$/crs-admin/src/main/java/com/ht/vo/query/RoleQueryVo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crs-admin/src/main/java/com/ht/config/security/SpringSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/crs-admin/src/main/java/com/ht/config/security/SpringSecurityConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/crs-admin/src/main/java/com/ht/controller/RoleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/crs-admin/src/main/java/com/ht/controller/RoleController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/crs-admin/src/main/java/com/ht/dao/RoleMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/crs-admin/src/main/java/com/ht/dao/RoleMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crs-admin/src/main/java/com/ht/service/RoleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/crs-admin/src/main/java/com/ht/service/RoleService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/crs-admin/src/main/java/com/ht/service/impl/RoleServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/crs-admin/src/main/java/com/ht/service/impl/RoleServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crs-vue/src/views/system/menu/menuList.vue" beforeDir="false" afterPath="$PROJECT_DIR$/crs-vue/src/views/system/menu/menuList.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crs-vue/src/api/role.js" beforeDir="false" afterPath="$PROJECT_DIR$/crs-vue/src/api/role.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crs-vue/src/api/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/crs-vue/src/api/user.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crs-vue/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/crs-vue/src/router/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crs-vue/src/store/getters.js" beforeDir="false" afterPath="$PROJECT_DIR$/crs-vue/src/store/getters.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crs-vue/src/store/modules/permission.js" beforeDir="false" afterPath="$PROJECT_DIR$/crs-vue/src/store/modules/permission.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crs-vue/src/store/modules/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/crs-vue/src/store/modules/user.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crs-vue/src/views/login/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/crs-vue/src/views/login/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crs-vue/src/views/system/role/roleList.vue" beforeDir="false" afterPath="$PROJECT_DIR$/crs-vue/src/views/system/role/roleList.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,7 +33,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/crs-admin" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="HighlightingSettingsPerFile">
@@ -109,7 +115,7 @@
       <recent name="com.ht.vo.query" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.dev">
+  <component name="RunManager" selected="Spring Boot.CrsAdminApplication">
     <configuration name="GeneratorCode" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.ht.run.GeneratorCode" />
       <module name="crs-admin" />
@@ -164,8 +170,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="npm.dev" />
         <item itemvalue="Spring Boot.CrsAdminApplication" />
+        <item itemvalue="npm.dev" />
         <item itemvalue="JUnit.CrsMessageApplicationTests.contextLoads" />
         <item itemvalue="应用程序.GeneratorCode" />
       </list>
@@ -191,7 +197,9 @@
       <workItem from="1682756279229" duration="53957000" />
       <workItem from="1683024546207" duration="32149000" />
       <workItem from="1683290211170" duration="28152000" />
-      <workItem from="1683546991527" duration="7269000" />
+      <workItem from="1683546991527" duration="7323000" />
+      <workItem from="1683633360654" duration="13829000" />
+      <workItem from="1683806167749" duration="7586000" />
     </task>
     <task id="LOCAL-00001" summary="提交">
       <created>1683466816893</created>
@@ -207,7 +215,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683468243593</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="提交">
+      <created>1683554302770</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1683554302770</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

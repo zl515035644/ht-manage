@@ -2,13 +2,17 @@ import { login, logout, getInfo } from '@/api/user'
 import { getToken, setToken, removeToken } from '@/utils/auth'
 import router, { resetRouter } from '@/router'
 
-const state = {
-  token: getToken(),
-  name: '',
-  avatar: '',
-  introduction: '',
-  roles: []
+const getDefaultState = () => {
+  return {
+    token: getToken(),
+    name: '',
+    avatar: '',
+    introduction: '',
+    roles: []
+  }
+
 }
+const state = getDefaultState()
 
 const mutations = {
   SET_TOKEN: (state, token) => {
@@ -25,13 +29,17 @@ const mutations = {
   },
   SET_ROLES: (state, roles) => {
     state.roles = roles
-  }
+  },
+  SET_USERUID: (state, userId) => {
+    state.userId = userId
+  },
 }
 
 const actions = {
   // 用户登陆
   login({ commit }, userInfo) {
     //从用户信息中解构出用户和密码
+
     const { username, password } = userInfo
     return new Promise((resolve, reject) => {
       //传递用户名和密码参数
@@ -54,22 +62,26 @@ const actions = {
     return new Promise((resolve, reject) => {
       getInfo(state.token).then(response => {
         const { data } = response
+        console.log("下面是data数据")
+        console.log(data)
 
         if (!data) {
           reject('Verification failed, please Login again.')
         }
 
-        const { roles, name, avatar, introduction } = data
+        const { roles, name, avatar, introduction, id } = data
 
         // roles must be a non-empty array
         if (!roles || roles.length <= 0) {
-          reject('getInfo: roles must be a non-null array!')
+          alert(roles.length)
+          reject('用户为分配角色权限，请联系管理员')
         }
 
         commit('SET_ROLES', roles)
         commit('SET_NAME', name)
         commit('SET_AVATAR', avatar)
         commit('SET_INTRODUCTION', introduction)
+        commit('SET_USERUID', id)
         resolve(data)
       }).catch(error => {
         reject(error)

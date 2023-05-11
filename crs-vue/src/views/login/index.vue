@@ -45,7 +45,7 @@
         </el-form-item>
       </el-tooltip>
 
-      <el-button :loading="loading" type="primary" style="width:100%;margin-bottom:30px;" @click.native.prevent="handleLogin">登陆</el-button>
+      <el-button :loading="loading" type="primary" style="width:100%;margin-bottom:30px;" @click.native.prevent="handleLogin">登陆111</el-button>
 
     </el-form>
 
@@ -126,10 +126,13 @@ export default {
      * 处理登陆请求
      */
     handleLogin() {
-      this.$refs.loginForm.validate(valid => {
+      //表单验证
+      this.$refs.loginForm.validate((valid) => {
         if (valid) {
+          //开启进度条
           this.loading = true
-          this.$store.dispatch('user/login', this.loginForm)
+          //调用src/store/modules/user.js中的login方法
+          this.$store.dispatch("user/login", this.loginForm)
             .then(() => {
               this.$router.push({ path: this.redirect || '/', query: this.otherQuery })
               this.loading = false
