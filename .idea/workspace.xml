@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ef6e2cc0-f2d9-4699-a957-32c78e1f7645" name="更改" comment="更改">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="ef6e2cc0-f2d9-4699-a957-32c78e1f7645" name="更改" comment="更改" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -54,7 +52,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "jdk.selected.JAVA_MODULE": "17",
-    "last_opened_file_path": "G:/ht-manage/crs-vue/src/api",
+    "last_opened_file_path": "G:/ht-manage",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -63,7 +61,7 @@
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
+    "settings.editor.selected.configurable": "vcs.Git",
     "spring.configuration.checksum": "2ed2a2c951197aa045a8977ec7aa0c17",
     "ts.external.directory.path": "D:\\Program Files (x86)\\java\\JetBrains\\IntelliJ IDEA 2022.2.3\\plugins\\JavaScriptLanguage\\jsLanguageServicesImpl\\external",
     "vue.rearranger.settings.migration": "true"
@@ -190,7 +188,8 @@
       <workItem from="1683546991527" duration="7323000" />
       <workItem from="1683633360654" duration="13829000" />
       <workItem from="1683806167749" duration="8410000" />
-      <workItem from="1683814647291" duration="2049000" />
+      <workItem from="1683814647291" duration="2328000" />
+      <workItem from="1683817073594" duration="56000" />
     </task>
     <task id="LOCAL-00001" summary="提交">
       <created>1683466816893</created>
@@ -220,7 +219,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683814087980</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="更改">
+      <created>1683816768266</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1683816768266</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -244,7 +250,8 @@
       <path value="$PROJECT_DIR$/crs-admin" />
     </ignored-roots>
     <MESSAGE value="提交" />
-    <option name="LAST_COMMIT_MESSAGE" value="提交" />
+    <MESSAGE value="更改" />
+    <option name="LAST_COMMIT_MESSAGE" value="更改" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
