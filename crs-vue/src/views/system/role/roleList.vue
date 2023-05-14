@@ -7,7 +7,7 @@
       <el-form-item>
         <el-button type="primary" icon="el-icon-search" @click="search(pageNo,pageSize)">查询</el-button>
         <el-button icon="el-icon-refresh-right"@click="resetValue()">重置</el-button>
-        <el-button icon="el-icon-plus" type="success">新增</el-button>
+        <el-button icon="el-icon-plus" type="success" @click="openAddWindow()">新增</el-button>
       </el-form-item>
     </el-form>
     <el-table
@@ -37,14 +37,46 @@
       layout="total, sizes, prev, pager, next, jumper"
       :total="total">
     </el-pagination>
+    <system-dialog
+      :title = "roleDialog.title"
+      :visible = "roleDialog.visible"
+      :width = "roleDialog.width"
+      :height = "roleDialog.height"
+      @onClose = "onClose"
+      @onConfirm = "onConfirm"
+      >
+      <div slot="content">
+        <el-form
+          :model = "role"
+          ref="roleForm"
+          :rules = "rules"
+          label-width="80px"
+          :inline = "false"
+          size="small"
+          >
+          <el-form-item label="角色编码" prop="roleCode">
+            <el-input v-model="role.roleCode"></el-input>
+          </el-form-item>
+          <el-form-item label="角色名称" prop="roleName">
+            <el-input v-model="role.roleName"></el-input>
+          </el-form-item>
+          <el-form-item label="角色描述" prop="remark">
+            <el-input type="textarea" v-model="role.remark" :rows="5"></el-input>
+          </el-form-item>
+        </el-form>
+      </div>
+    </system-dialog>
   </el-main>
 </template>
 
 <script>
-import {getRoles} from "@/api/role";
-
+import {getRoles, addRole, updateRole} from "@/api/role";
+import SystemDialog from "@/components/system/SystemDialog";
 export default {
   name:"roleList",
+  components: {
+    SystemDialog
+  },
   data(){
     return{
       searchModel:{
@@ -58,10 +90,26 @@ export default {
       pageNo: 1,
       pageSize: 10,
       total: 0,
+      rules: {
+        roleCode:[{required:true, trigger: 'blur', message:"请输入角色编码"}],
+        roleName:[{required:true, trigger: 'blur', message:"请输入角色名称"}]
+      },
+      roleDialog: {
+        title:'',
+        visible:false,
+        height:230,
+        width:500
+      },
+      role: {
+        id:"",
+        roleCode:'',
+        roleName:'',
+        remark:'',
+        createUser:this.$store.getters.userId
+      }
     };
   },
   created() {
-    console.log(this.$store.getters.userId)
     this.search();
   },
 
@@ -89,7 +137,6 @@ export default {
      * 当每页显示数量发生变化时触发
      */
     handleSizeChange(size){
-      console.log(size)
       this.pageSize = size;
       this.search(this.pageNo, size)
     },
@@ -97,16 +144,50 @@ export default {
      * 当页码发生变化时触发
      */
     handleCurrentChange(page){
-      console.log(page)
       this.pageNo =page;
       this.search(page, this.pageSize)
+    },
+    openAddWindow(){
+      this.$resetForm("roleForm", this.role);
+      this.roleDialog.title="新增角色";
+      this.roleDialog.visible = true;
+    },
+    /**
+     * 关闭取消按钮点击事件
+     */
+    onClose() {
+      this.roleDialog.visible = false;
+    },
+    /**
+     * 确认按钮点击事件，
+     */
+    onConfirm() {
+      this.$refs.roleForm.validate(async (valid) => {
+        if (valid) {
+          let res = null;
+          if (this.role.id === ""){
+            res = await addRole(this.role);
+          }else {
+            res = await updateRole(this.role);
+          }
+          if (res.success) {
+            this.$message.success(res.message);
+            await this.search();
+            this.roleDialog.visible = false;
+          } else {
+            this.$message.error(res.message);
+          }
+        }
+      })
     },
     /**
      * 修改角色
      * @param row
      */
     handleEdit(row){
-
+      this.$objCopy(row, this.role);
+      this.roleDialog.title = "修改部门";
+      this.roleDialog.visible = true;
     },
     /**
      * 删除角色

@@ -4,16 +4,16 @@ export function getRoutes() {
 
 }
 
-export async function getRoles(params) {
-  return http.get("/api/role/list", params);
+export async function getRoles(data) {
+  return http.get("/api/role/list", data);
 }
 
-export function addRole(data) {
-
+export async function addRole(data) {
+  return http.post("/api/role/add", data);
 }
 
-export function updateRole(id, data) {
-
+export async function updateRole(data) {
+  return http.put("/api/role/update", data);
 }
 
 export function deleteRole(id) {

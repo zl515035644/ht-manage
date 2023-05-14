@@ -211,11 +211,8 @@ export default {
       this.deptDialog.visible = true;
     },
     async handleDelete(row) {
-      console.log("要删除的ID是：" + row.id);
       let result = await departmentApi.checkDepartment({id:row.id});
-      console.log("程序到这里了")
       if (!result.success) {
-        console.log("程序到这里了"+ result.success);
         this.$message.warning(result.message)
       }else {
         let confirm =await this.$myConfirm("确定要删除吗?");

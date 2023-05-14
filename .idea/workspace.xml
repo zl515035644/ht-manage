@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ef6e2cc0-f2d9-4699-a957-32c78e1f7645" name="更改" comment="更改" />
+    <list default="true" id="ef6e2cc0-f2d9-4699-a957-32c78e1f7645" name="更改" comment="更改">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crs-vue/src/api/role.js" beforeDir="false" afterPath="$PROJECT_DIR$/crs-vue/src/api/role.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crs-vue/src/views/system/role/roleList.vue" beforeDir="false" afterPath="$PROJECT_DIR$/crs-vue/src/views/system/role/roleList.vue" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -19,6 +23,12 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="PUSH_TAGS">
+      <GitPushTagMode>
+        <option name="argument" value="--tags" />
+        <option name="title" value="All" />
+      </GitPushTagMode>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="UPDATE_TYPE" value="REBASE" />
   </component>
@@ -61,7 +71,7 @@
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "vcs.Git",
+    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable",
     "spring.configuration.checksum": "2ed2a2c951197aa045a8977ec7aa0c17",
     "ts.external.directory.path": "D:\\Program Files (x86)\\java\\JetBrains\\IntelliJ IDEA 2022.2.3\\plugins\\JavaScriptLanguage\\jsLanguageServicesImpl\\external",
     "vue.rearranger.settings.migration": "true"
@@ -101,7 +111,7 @@
       <recent name="com.ht.vo.query" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.CrsAdminApplication">
+  <component name="RunManager" selected="npm.dev">
     <configuration name="GeneratorCode" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.ht.run.GeneratorCode" />
       <module name="crs-admin" />
@@ -156,8 +166,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Spring Boot.CrsAdminApplication" />
         <item itemvalue="npm.dev" />
+        <item itemvalue="Spring Boot.CrsAdminApplication" />
         <item itemvalue="JUnit.CrsMessageApplicationTests.contextLoads" />
       </list>
     </recent_temporary>
@@ -189,7 +199,7 @@
       <workItem from="1683633360654" duration="13829000" />
       <workItem from="1683806167749" duration="8410000" />
       <workItem from="1683814647291" duration="2328000" />
-      <workItem from="1683817073594" duration="56000" />
+      <workItem from="1683817073594" duration="8676000" />
     </task>
     <task id="LOCAL-00001" summary="提交">
       <created>1683466816893</created>
@@ -226,7 +236,21 @@
       <option name="project" value="LOCAL" />
       <updated>1683816768266</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="更改">
+      <created>1683817273528</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1683817273528</updated>
+    </task>
+    <task id="LOCAL-00007" summary="更改">
+      <created>1683817289583</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1683817289583</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
