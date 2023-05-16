@@ -66,12 +66,35 @@
         </el-form>
       </div>
     </system-dialog>
+    <system-dialog
+      :title = "assignDialog.title"
+      :visible = "assignDialog.visible"
+      :width = "assignDialog.width"
+      :height = "assignDialog.height"
+      @onClose = "onAssignClose"
+      @onConfirm = "onAssignConfirm"
+    >
+      <div slot="content">
+        <el-tree
+          ref="assignTree"
+          :data="assignTreeData"
+          node-key="id"
+          :props="defaultProps"
+          empty-text="暂无数据"
+          :show-checkbox="true"
+          :highlight-current="true"
+          default-expand-all
+        >
+        </el-tree>
+      </div>
+    </system-dialog>
   </el-main>
 </template>
 
 <script>
-import {getRoles, addRole, updateRole} from "@/api/role";
+import {getRoles, addRole, updateRole, checkRole, deleteRole, getAssignTree, saveRoleAssign} from "@/api/role";
 import SystemDialog from "@/components/system/SystemDialog";
+import leafUtils from "@/utils/leaf";
 export default {
   name:"roleList",
   components: {
@@ -95,6 +118,18 @@ export default {
         roleName:[{required:true, trigger: 'blur', message:"请输入角色名称"}]
       },
       roleDialog: {
+        title:'',
+        visible:false,
+        height:450,
+        width:300
+      },
+      roleId: "",
+      assignTreeData: [],
+      defaultProps: {
+        children: "children",
+        label: "label"
+      },
+      assignDialog: {
         title:'',
         visible:false,
         height:230,
@@ -172,7 +207,7 @@ export default {
           }
           if (res.success) {
             this.$message.success(res.message);
-            await this.search();
+            await this.search(this.pageNo, this.pageSize);
             this.roleDialog.visible = false;
           } else {
             this.$message.error(res.message);
@@ -193,17 +228,111 @@ export default {
      * 删除角色
      * @param row
      */
-    handleDelete(row){
-
+    async handleDelete(row){
+      let result = await checkRole({id:row.id});
+      if (!result.success) {
+        this.$message.warning(result.message)
+      }else {
+        let confirm =await this.$myConfirm("确定要删除该数据吗?");
+        if (confirm){
+          let res = await deleteRole({id:row.id})
+          if (res.success) {
+            this.$message.success(res.message);
+            await this.search(this.pageNo, this.pageSize);
+          } else {
+            this.$message.error(res.message);
+          }
+        }
+      }
     },
     /**
      * 分配权限
      * @param row
      */
-    assignRole(row){
-
+    async assignRole(row){
+    //  将roleId赋值
+      this.roleId = row.id;
+    //  构建查询参数
+      let params = {
+        roleId: row.id,
+        userId: this.$store.getters.userId
+      }
+    //  发送查询分配权限菜单请求
+      let res = await getAssignTree(params);
+      if (res.success) {
+      //  获取当前登陆用户所拥有的菜单权限
+        console.log(res)
+        let {permissionList} = res.data;
+      //  获取当前登陆用户被分配角色已经拥有的菜单权限
+        let {checkList} = res.data;
+        //判断当前菜单是否是最后一级
+        let {setLeaf} = leafUtils();
+        //设置权限列表
+        let newPermissionList = setLeaf(permissionList);
+      //  设置树节点数据
+        this.assignTreeData = newPermissionList;
+      //  将回调延迟到下一次DOM更新循环之后执行，在修改数据之后立即调用该方法，然后等等DOM更新
+        this.$nextTick(()=>{
+          let nodes = this.$refs.assignTree.children;
+        //  设置子节点
+          this.setChild(nodes,checkList);
+        })
+      }
+    //设置权限标题
+      this.assignDialog.title=`给【${row.roleName}】分配权限`;
+    //  显示窗口
+      this.assignDialog.visible=true;
     },
+    setChild(childNodes, checkList){
+      if (childNodes && childNodes.length>0) {
+        for (let i=0; i<childNodes.label; i++){
+        //  根据data或key获取数组件中的node节点
+          let node = this.$refs.assignTree.getNode(childNodes[i]);
+          if (checkList && checkList.length>0){
+            for (let j=0; j<checkList.length; j++){
+              if (childNodes[i].id === checkList[j]){
+                if (childNodes[i].open){
+                  this.$refs.assignTree.setChecked(node, true);
+                  break;
+                }
+              }
+            }
+          }
+          if (childNodes[i].children) {
+            this.setChild(childNodes[i].children, checkList)
+          }
+        }
+      }
+    },
+    /**
+     * 关闭取消按钮点击事件
+     */
+    onAssignClose() {
+      this.assignDialog.visible = false;
+    },
+    /**
+     * 确认按钮点击事件，
+     */
+    async onAssignConfirm() {
+      let ids = this.$refs.assignTree.getCheckedKeys();
+      //获取选中的父节点的ID
+      let pids = this.$refs.assignTree.getHalfCheckedKeys();
+      console.log(ids+"-----"+pids)
 
+      let listId = ids.concat(pids);
+
+      let params = {
+        roleId:this.roleId,
+        list: listId,// 选中的节点ID列表
+      }
+      let res = await saveRoleAssign(params);
+      if (res.success) {
+        this.assignDialog.visible = false;
+        this.$message.success(res.message);
+      } else {
+        this.$message.error(res.message);
+      }
+    }
   },
 }
 </script>
