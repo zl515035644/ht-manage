@@ -100,8 +100,6 @@
 <script>
 import departmentApi from '@/api/department'
 import SystemDialog from "@/components/system/SystemDialog";
-import resetForm from "@/utils/resetForm";
-import myConfirm from "@/utils/myConfirm";
 export default {
   name: "department",
   components:{
@@ -231,6 +229,6 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 
 </style>

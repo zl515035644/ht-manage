@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/crs-admin/crs-admin.iml" filepath="$PROJECT_DIR$/crs-admin/crs-admin.iml" />
       <module fileurl="file://$PROJECT_DIR$/ht-manage.iml" filepath="$PROJECT_DIR$/ht-manage.iml" />
     </modules>
   </component>

@@ -68,8 +68,8 @@ export default {
     return {
       //登陆表单对象
       loginForm: {
-        username: '',
-        password: ''
+        username: 'admin',
+        password: 'admin'
       },
       //表单验证规则
       loginRules: {

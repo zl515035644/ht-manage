@@ -77,7 +77,8 @@ export default {
      * @returns {Promise<void>}
      */
     async logout() {
-      let confirm = await this.$myconfirm('确定退出系统吗');
+      console.log("确定退出系统吗？")
+      let confirm = await this.$myConfirm("确定退出系统吗？");
       if (confirm) {
         let param = {token: getToken()};
         let res = await logout(param)

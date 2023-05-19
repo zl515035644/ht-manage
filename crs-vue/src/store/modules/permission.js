@@ -12,7 +12,6 @@ import Layout from "@/layout";
  * @param route
  */
 function hasPermission(roles, route) {
-  console.log("这是谁的")
   if (route.meta && route.meta.roles) {
     return roles.some(role => route.meta.roles.includes(role))
   } else {
@@ -79,7 +78,6 @@ const actions = {
     return new Promise((resolve, reject) => {
       //发送查询菜单数据的请求
       getMenuList().then(res => {
-        console.log(res);
         let accessedRoutes; //存放对应权限的路由信息
         if (res.code === 200){
           accessedRoutes = filterAsyncRoutes(res.data, roles)

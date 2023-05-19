@@ -19,11 +19,11 @@ export async function getMenuList() {
   return http.get("/api/sysUser/getMenuList");
 }
 
-// export default {
-//   async getUserList(params) {
-//     return http.get("/api/user/list", params);
-//   }
-// }
+export default {
+  async getUserList(params) {
+    return http.get("/api/user/list", params);
+  }
+}
 // export function login(data) {
 //   return request({
 //     url: '/vue-element-admin/user/login',
