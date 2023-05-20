@@ -22,6 +22,9 @@ export async function getMenuList() {
 export default {
   async getUserList(params) {
     return http.get("/api/user/list", params);
+  },
+  async addUser(params) {
+    return http.post("/api/user/add", params);
   }
 }
 // export function login(data) {

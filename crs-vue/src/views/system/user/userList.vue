@@ -2,7 +2,7 @@
 
     <el-container :style="{height: containerHeight + 'px'}">
       <!-- 左侧菜单树 -->
-      <el-aside style="padding: 10px 0px 0px 0px; background: #fff; border-right: #dfe6ec" width="220px">
+      <el-aside style="padding: 10px 0 0 0; background: #fff; border-right: #dfe6ec" width="220px">
         <el-tree
           style="font-size: 14px"
           ref="leftTree"
@@ -30,31 +30,214 @@
         </el-tree>
       </el-aside>
       <!-- 右侧列表 -->
+      <el-main>
+        <el-form ref="searchForm" :model="searchModel" label-width="80px" :inline="true" size="small">
+          <el-form-item>
+            <el-input v-model="searchModel.username" placeholder="请输入用户名"/>
+          </el-form-item>
+          <el-form-item>
+            <el-input v-model="searchModel.realName" placeholder="请输入用户名"/>
+          </el-form-item>
+          <el-form-item>
+            <el-input v-model="searchModel.phone" placeholder="请输入联系电话"/>
+          </el-form-item>
+          <el-form-item>
+            <el-button icon="el-icon-search" type="primary"
+                       @click="search(departmentId, pageNo, pageSize)">查询</el-button>
+            <el-button icon="el-icon-delete" @click="resetValue()">重置</el-button>
+            <el-button icon="el-icon-plus" type="primary"
+                       @click="openAddWindow()">新增</el-button>
+          </el-form-item>
+        </el-form>
+        <el-table
+          :data="userList" :height="tableHeight" border stripe
+          style="width: 100%; margin-bottom: 10px">
+          <el-table-column  prop="username" label="用户名" ></el-table-column>
+          <el-table-column prop="realName" label="姓名" ></el-table-column>
+          <el-table-column prop="departmentName" label="所属部门" ></el-table-column>
+          <el-table-column prop="phone" label="电话" ></el-table-column>
+          <el-table-column prop="email" label="邮箱" ></el-table-column>
+          <el-table-column align="center" label="操作" width="290">
+            <template slot-scope="scope">
+              <el-button icon="el-icon-edit" type="primary" size="mini"
+                         @click="handleEdit(scope.row)">修改</el-button>
+              <el-button icon="el-icon-delete" type="danger" size="mini"
+                         @click="handleDelete(scope.row)">删除</el-button>
+              <el-button icon="el-icon-setting" type="primary" size="mini"
+                         @click="assignRole(scope.row)">分配角色</el-button>
+            </template>
+          </el-table-column>
+        </el-table>
+        <system-dialog
+          :title="userDialog.title"
+          :visible="userDialog.visible"
+          :width="userDialog.width"
+          :height="userDialog.height"
+          @onClose="onClose()"
+          @onConfirm="onConfirm()"
+        >
+          <div slot="content">
+            <el-form :model="user" ref="userForm" :rules="rules" label-width="80px" :inline="true" size="small">
+              <el-form-item label="用户名" prop="username">
+                <el-input v-model="user.username"></el-input>
+              </el-form-item>
+              <el-form-item label="密码" v-if="user.id === ''" prop="password">
+                <el-input type="password" v-model="user.password"></el-input>
+              </el-form-item>
+              <el-form-item label="所属部门" prop="departmentName">
+                <el-input v-model="user.departmentName" :readonly="true" @click.native="selectDepartment()"></el-input>
+              </el-form-item>
+              <el-form-item label="姓名" prop="realName">
+                <el-input v-model="user.realName"></el-input>
+              </el-form-item>
+              <el-form-item label="电话" prop="phone">
+                <el-input v-model="user.phone"></el-input>
+              </el-form-item>
+              <el-form-item label="昵称" >
+                <el-input v-model="user.nickName"></el-input>
+              </el-form-item>
+              <el-form-item label="邮箱" >
+                <el-input v-model="user.email"></el-input>
+              </el-form-item>
+              <el-form-item label="性别" prop="gender">
+                <el-radio-group v-model="user.gender">
+                  <el-radio :label="0">男</el-radio>
+                  <el-radio :label="1">女</el-radio>
+                </el-radio-group>
+              </el-form-item>
+
+            </el-form>
+          </div>
+        </system-dialog>
+        <system-dialog
+          :title="parentDialog.title"
+          :visible="parentDialog.visible"
+          :width="parentDialog.width"
+          :height="parentDialog.height"
+          @onClose="onParentClose()"
+          @onConfirm="onParentConfirm()"
+        >
+          <div slot="content">
+            <el-tree
+              ref="parentTree"
+              :data="parentList"
+              default-expand-all
+              node-key="id"
+              :props="parentProps"
+              :show-checkbox="false"
+              :highlight-current="true"
+              :expand-on-click-node="false"
+              @node-click="parentClick">
+              <div class="custom-tree-node" slot-scope="{node, data}">
+                <!-- 判断当前节点是否有子节点-->
+                <span v-if="data.children.length === 0" >
+                  <i class="el-icon-document"></i>
+                </span>
+                <span v-else @click.stop="openParentBtn(data)">
+                  <svg-icon v-if="data.open" icon-class="el-icon-plus"></svg-icon>
+                  <svg-icon v-else icon-class="el-icon-minus"></svg-icon>
+                </span>
+                <span style="margin-left: 3px" >{{node.label}}</span>
+              </div>
+            </el-tree>
+          </div>
+        </system-dialog>
+        <el-pagination
+          @size-change="handleSizeChange"
+          @current-change="handleCurrentChange"
+          :current-page="pageNo"
+          :page-sizes="[10,15,20,25,30]"
+          :page-size="10"
+          layout="total, sizes, prev, pager, next, jumper"
+          :total="total">
+        </el-pagination>
+      </el-main>
+
+
     </el-container>
 </template>
 
 <script>
 
 import departmentApi from '@/api/department'
-
+import userApi from '@/api/user';
+import SystemDialog from "@/components/system/SystemDialog";
 export default {
   name: "userList",
+  components: {
+    SystemDialog
+  },
   data() {
     return{
-          containerHeight: 0,
-          deptList: [],
-          defaultProps: {
-            children: 'children',
-            label: 'departmentName',
-          },
+      containerHeight: 0,
+      deptList: [],
+      userList: [],
+      tableHeight: 0,
+      departmentId: "",
+      pageNo:1,
+      pageSize:10,
+      total: 0,
+      defaultProps: {
+        children: 'children',
+        label: 'departmentName',
+      },
+      searchModel:{
+        username: "",
+        realName: "",
+        phone: "",
+        departmentId: "",
+        pageNo:1,
+        pageSize:10,
+      },
+      userDialog:{
+        title: "",
+        visible: false,
+        width: 610,
+        height: 260,
+      },
+      parentDialog:{
+        title: "选择所属部门",
+        visible: false,
+        width: 300,
+        height: 450,
+      },
+      parentList: [],
+      parentProps: {
+        children: "children",
+        label: "departmentName"
+      },
+      user: {
+        id: "",
+        departmentId:"",
+        departmentName: "",
+        email: "",
+        realName:"",
+        phone: "",
+        nickName:"",
+        username:"",
+        password:"",
+        gender:"",
+        avatar:"",
+      },
+      rules: {
+        departmentName: [{ required: true, message: '请选择所属部门', trigger: 'change' }],
+        realName: [{ required: true, message: '请输入姓名', trigger: 'blur' }],
+        phone: [{ required: true, message: '请输入电话', trigger: 'blur' }],
+        username: [{ required: true, message: '请输入登录名', trigger: 'blur' }],
+        password: [{ required: true, message: '请输入密码', trigger: 'blur' }],
+        gender: [{ required: true, message: '请选择性别', trigger: 'change' }],
+
+      },
     };
   },
   created() {
     this.getDeptList();
+    this.search(this.departmentId)
   },
   mounted() {
     this.$nextTick(()=>{
       this.containerHeight = window.innerHeight-85;
+      this.tableHeight = window.innerHeight-220;
     })
   },
   methods:{
@@ -62,17 +245,104 @@ export default {
       let res = await departmentApi.getDepartmentList(null);
       if (res.success) {
         this.deptList = res.data;
+        this.$nextTick(() => {
+          const firstNode = document.querySelector(".el-tree-node");
+          firstNode.click();
+        })
       }
     },
     changeIcon(data) {
       data.open = !data.open;
       this.$refs.leftTree.store.nodesMap[data.id].expanded = !data.open;
     },
+    openParentBtn(data){
+      data.open = !data.open;
+      this.$refs.parentTree.store.nodesMap[data.id].expanded = !data.open;
+    },
     handleNodeClick(data){
+      this.departmentId = data.id;
+      this.search(this.departmentId);
+    },
+    async search(departmentId, pageNo=1, pageSize=10){
+      this.searchModel.pageNo = pageNo;
+      this.searchModel.pageSize = pageSize;
+      this.searchModel.departmentId = departmentId;
+      let res = await userApi.getUserList(this.searchModel);
+      if (res.success) {
+        this.userList = res.data.records;
+        this.total = res.data.total;
+      }
+    },
+    resetValue(){
+      this.searchModel = {};
+      this.search(this.departmentId)
+    },
+    openAddWindow(){
+      this.$resetForm("userForm",this.user);
+      this.userDialog.title="新增部门";
+      this.userDialog.visible=true;
+    },
+    parentClick(data){
+      this.user.departmentId = data.id;
+      this.user.departmentName= data.departmentName;
+    },
+    async selectDepartment(){
+      let res = await departmentApi.getDepartmentList(null);
+      if (res.success) {
+        this.parentList = res.data
+      }
+      this.parentDialog.visible = true;
+    },
+    handleEdit(){
 
     },
+    handleDelete(){
 
+    },
+    assignRole(){
 
+    },
+    onClose(){
+      this.userDialog.visible=false;
+    },
+    onConfirm() {
+      this.$refs.userForm.validate(async (valid) => {
+        if (valid) {
+          let res = null;
+          if (this.user.id === "") {
+            res = await userApi.addUser(this.user)
+          }else {
+
+          }
+          if (res.success) {
+            this.$message.success(res.message);
+            await this.search(this.departmentId);
+            this.userDialog.visible= false;
+          }
+        }
+      })
+    },
+    onParentClose(){
+      this.parentDialog.visible=false;
+      this.user.departmentName = "";
+    },
+    onParentConfirm() {
+      this.parentDialog.visible=false;
+    },
+    /**
+     * 当每页显示数量发生变化时触发
+     */
+    handleSizeChange(size){
+      this.pageSize = size;
+      this.search(this.departmentId, this.pageNo, size)
+    },
+    /**
+     * 当页码发生变化时触发
+     */
+    handleCurrentChange(page){
+      this.pageNo =page;
+      this.search(this.departmentId, page, this.pageSize)
+    },
   }
 }
 </script>
