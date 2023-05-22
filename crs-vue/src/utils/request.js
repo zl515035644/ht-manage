@@ -25,7 +25,6 @@ service.interceptors.request.use(
   },
   error => {
     // do something with request error
-    console.log(error) // for debug
     return Promise.reject(error)
   }
 )
@@ -74,7 +73,6 @@ service.interceptors.response.use(
     }
   },
   error => {
-    console.log('err' + error) // for debug
     Message({
       message: error.message,
       type: 'error',
@@ -113,24 +111,19 @@ const http = {
     })
   },
   getRestApi(url, params) {
-    console.log(url + "---" + params)
     let _params;
     if (Object.is(params, undefined || null)) {
       _params = '';
     }else{
       _params = '/';
       for (const key in params) {
-        console.log(key)
-        console.log(params[key])
         if (params.hasOwnProperty(key) && params[key] !== null && params[key] !== '') {
           _params += `${params[key]}`
         }
       }
       _params = _params.substr(0, _params.length);
     }
-    console.log("这里为什么是个："+_params)
     if (_params) {
-      console.log("这里返回的是‘url’"+url+_params)
       return service.get(`${url}${_params}`);
     }else {
       return service.get(url);

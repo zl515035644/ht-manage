@@ -8,6 +8,8 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/crs-admin" beforeDir="false" afterPath="$PROJECT_DIR$/crs-admin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/crs-vue/src/api/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/crs-vue/src/api/user.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crs-vue/src/utils/request.js" beforeDir="false" afterPath="$PROJECT_DIR$/crs-vue/src/utils/request.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crs-vue/src/views/system/menu/menuList.vue" beforeDir="false" afterPath="$PROJECT_DIR$/crs-vue/src/views/system/menu/menuList.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/crs-vue/src/views/system/user/userList.vue" beforeDir="false" afterPath="$PROJECT_DIR$/crs-vue/src/views/system/user/userList.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -35,6 +37,8 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/crs-admin/pom.xml" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/crs-admin/src/main/java/com/ht/controller/RoleController.java" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/crs-admin/src/main/resources/mapper/RoleMapper.xml" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/crs-vue/src/views/login/index.vue" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -112,7 +116,7 @@
       <recent name="com.ht.vo.query" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.CrsAdminApplication">
+  <component name="RunManager" selected="npm.dev">
     <configuration name="GeneratorCode" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.ht.run.GeneratorCode" />
       <module name="crs-admin" />
@@ -192,8 +196,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Spring Boot.CrsAdminApplication" />
         <item itemvalue="npm.dev" />
+        <item itemvalue="Spring Boot.CrsAdminApplication" />
         <item itemvalue="Maven.crs-admin [clean]" />
         <item itemvalue="JUnit.CrsMessageApplicationTests.contextLoads" />
       </list>
@@ -232,7 +236,8 @@
       <workItem from="1684331972081" duration="2173000" />
       <workItem from="1684411635198" duration="7175000" />
       <workItem from="1684418875899" duration="1623000" />
-      <workItem from="1684481235411" duration="13315000" />
+      <workItem from="1684481235411" duration="13471000" />
+      <workItem from="1684667810987" duration="19070000" />
     </task>
     <task id="LOCAL-00001" summary="提交">
       <created>1683466816893</created>
@@ -304,7 +309,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684481634585</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="更改">
+      <created>1684595357770</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1684595357770</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

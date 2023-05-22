@@ -68,6 +68,7 @@
             </template>
           </el-table-column>
         </el-table>
+<!--        新增和修改-->
         <system-dialog
           :title="userDialog.title"
           :visible="userDialog.visible"
@@ -109,6 +110,7 @@
             </el-form>
           </div>
         </system-dialog>
+<!--        所属部门-->
         <system-dialog
           :title="parentDialog.title"
           :visible="parentDialog.visible"
@@ -142,6 +144,44 @@
             </el-tree>
           </div>
         </system-dialog>
+<!--分配角色-->
+        <system-dialog
+          :title="assignDialog.title"
+          :visible="assignDialog.visible"
+          :width="assignDialog.width"
+          :height="assignDialog.height"
+          @onClose="onAssignClose()"
+          @onConfirm="onAssignConfirm()"
+        >
+          <div slot="content">
+            <el-table
+              ref="assignRoleTable"
+              :data="assignRoleList"
+              border
+              stripe
+              :height="assignHeight"
+              style="width: 100%; margin-bottom: 10px"
+              @selection-change="handleSelectionChange"
+            >
+              <el-table-column type="selection" width="55" align="center"></el-table-column>
+              <el-table-column prop="roleCode" label="角色编码"/>
+              <el-table-column prop="roleName" label="角色名称"/>
+              <el-table-column prop="remark" label="角色备注"/>
+            </el-table>
+            <el-pagination
+              @size-change="assignSizeChange"
+              @current-change="assignCurrentChange"
+              :current-page.sync="roleVo.pageNo"
+              :page-sizes="[10,15,20,25,30]"
+              :page-size="roleVo.pageSize"
+              layout="total, sizes, prev, pager, next, jumper"
+              :total="roleVo.total"
+              background
+            >
+            </el-pagination>
+          </div>
+        </system-dialog>
+<!--        分页-->
         <el-pagination
           @size-change="handleSizeChange"
           @current-change="handleCurrentChange"
@@ -152,8 +192,6 @@
           :total="total">
         </el-pagination>
       </el-main>
-
-
     </el-container>
 </template>
 
@@ -168,6 +206,15 @@ export default {
     SystemDialog
   },
   data() {
+    let validatePhone = (rule, value, callback) => {
+      if (!value) {
+        callback(new Error("请输入手机号码"));
+      }else if (!/^1[3456789]\d{9}$/.test(value)){
+        callback(new Error("手机号格式不正确"));
+      }else{
+        callback();
+      }
+    };
     return{
       containerHeight: 0,
       deptList: [],
@@ -176,7 +223,7 @@ export default {
       departmentId: "",
       pageNo:1,
       pageSize:10,
-      total: 0,
+      total: null,
       defaultProps: {
         children: 'children',
         label: 'departmentName',
@@ -222,12 +269,28 @@ export default {
       rules: {
         departmentName: [{ required: true, message: '请选择所属部门', trigger: 'change' }],
         realName: [{ required: true, message: '请输入姓名', trigger: 'blur' }],
-        phone: [{ required: true, message: '请输入电话', trigger: 'blur' }],
+        phone: [{trigger: 'blur', validator: validatePhone}],
         username: [{ required: true, message: '请输入登录名', trigger: 'blur' }],
         password: [{ required: true, message: '请输入密码', trigger: 'blur' }],
         gender: [{ required: true, message: '请选择性别', trigger: 'change' }],
 
       },
+      assignDialog: {
+        title: "",
+        visible: false,
+        width: 800,
+        height: 410,
+      },
+      roleVo: {
+        pageNo: 1,
+        pageSize: 10,
+        userId: "",
+        total: null,
+      },
+      assignRoleList: [],
+      assignHeight: 0,
+      selectIds: [],
+      selectedUserId: "",
     };
   },
   created() {
@@ -238,6 +301,7 @@ export default {
     this.$nextTick(()=>{
       this.containerHeight = window.innerHeight-85;
       this.tableHeight = window.innerHeight-220;
+      this.assignHeight = window.innerHeight-350;
     })
   },
   methods:{
@@ -293,14 +357,80 @@ export default {
       }
       this.parentDialog.visible = true;
     },
-    handleEdit(){
-
+    handleEdit(row){
+      this.userDialog.title  = "编辑用户";
+      this.userDialog.visible  = true;
+      this.$objCopy(row, this.user);
     },
-    handleDelete(){
-
+    /**
+     * 删除角色
+     * @param row
+     */
+    async handleDelete(row){
+      let confirm =await this.$myConfirm("确定要删除该数据吗?");
+      if (confirm){
+        let params = {id:row.id}
+        let res = await userApi.deleteUser(params)
+        if (res.success) {
+          this.$message.success(res.message);
+          await this.search(this.departmentId);
+        } else {
+          this.$message.error(res.message);
+        }
+      }
     },
-    assignRole(){
+    async assignRole(row){
+      this.selectIds = [];
+      this.selectedUserId = row.id;
+      this.assignDialog.visible=true;
+      this.assignDialog.title=`给【${row.realName}】分配角色`;
+    //  调用查询角色列表的方法
+      await this.getAssignRoleList();
 
+      let params = {userId: row.id}
+      let res = await userApi.getRoleByUserId(params)
+      if (res.success && res.data){
+        this.selectIds = res.data;
+        this.selectIds.forEach((key) => {
+          this.assignRoleList.forEach((item) =>{
+            if (key === item.id){
+              this.$refs.assignRoleTable.toggleRowSelection(item, true);
+            }
+          });
+        })
+      }
+    },
+    /**
+     * 查询当前登陆用户所有的角色信息
+     * @param pageNo
+     * @param pageSize
+     * @returns {Promise<void>}
+     */
+    async getAssignRoleList(pageNo=1, pageSize=10){
+      this.roleVo.userId = this.$store.getters.userId;
+      this.roleVo.pageNo = pageNo;
+      this.roleVo.pageSize = pageSize;
+      let res = await userApi.getAssignRoleList(this.roleVo);
+      if (res.success){
+        this.assignRoleList = res.data.records;
+        this.roleVo.total= res.data.total;
+      }
+    },
+
+    handleSelectionChange(rows){},
+    assignSizeChange(size){
+      this.roleVo.pageSize = size;
+      this.getAssignRoleList(this.roleVo.pageNo, size);
+    },
+    assignCurrentChange(page){
+      this.roleVo.pageNo = page;
+      this.getAssignRoleList(page, this.roleVo.pageSize)
+    },
+    onAssignClose(){
+      this.assignDialog.visible=false;
+    },
+    onAssignConfirm() {
+      this.assignDialog.visible=false;
     },
     onClose(){
       this.userDialog.visible=false;
@@ -312,7 +442,7 @@ export default {
           if (this.user.id === "") {
             res = await userApi.addUser(this.user)
           }else {
-
+            res = await userApi.updateUser(this.user)
           }
           if (res.success) {
             this.$message.success(res.message);
@@ -329,6 +459,7 @@ export default {
     onParentConfirm() {
       this.parentDialog.visible=false;
     },
+
     /**
      * 当每页显示数量发生变化时触发
      */

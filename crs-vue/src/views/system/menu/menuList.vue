@@ -103,7 +103,7 @@
            :expand-on-click-node="false"
            @node-click="handleNodeClick">
            <div class="customer-tree-node" slot-scope="{node, data}">
-             <span v-if="data.children.length === 0">
+             <span v-if="data.children.length == 0">
                <i class="el-icon-document" style="color: #8c8c8c; font-size: 18px"/>
              </span>
              <span v-else @click.stop="changeIcon(data)">
@@ -277,16 +277,13 @@ export default {
      * 关闭取消按钮点击事件
      */
     onParentClose() {
-      console.log(+ "关闭取消按钮点击事件")
-
       this.parentDialog.visible = false;
     },
     /**
      * 确认按钮点击事件，
      */
     onParentConfirm() {
-      console.log("确认按钮点击事件，")
-        this.parentDialog.visible = false;
+      this.parentDialog.visible = false;
     },
     changeIcon(data) {
       data.open = !data.open;
@@ -297,7 +294,6 @@ export default {
      * @param data
      */
     handleNodeClick(data) {
-      // console.log(this.menu.parentName)
       this.menu.parentId = data.id;
       this.menu.parentName = data.label;
     }

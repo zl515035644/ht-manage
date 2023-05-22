@@ -25,7 +25,19 @@ export default {
   },
   async addUser(params) {
     return http.post("/api/user/add", params);
-  }
+  },
+  async updateUser(params){
+    return http.put("/api/user/update",params);
+  },
+  async deleteUser(params){
+    return http.delete("/api/user/delete",params);
+  },
+  async getAssignRoleList(params){
+    return http.get("/api/user/getRoleListForAssign",params);
+  },
+  async getRoleByUserId(params){
+    return http.getRestApi("/api/user/getRoleByUserId",params);
+  },
 }
 // export function login(data) {
 //   return request({
