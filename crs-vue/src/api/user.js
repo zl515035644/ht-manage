@@ -38,6 +38,9 @@ export default {
   async getRoleByUserId(params){
     return http.getRestApi("/api/user/getRoleByUserId",params);
   },
+  async assignRoleSave(params){
+    return http.post("/api/user/saveUserRole", params)
+  }
 }
 // export function login(data) {
 //   return request({

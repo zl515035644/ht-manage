@@ -417,7 +417,13 @@ export default {
       }
     },
 
-    handleSelectionChange(rows){},
+    handleSelectionChange(rows){
+      let roleIds = [];
+      for (let i = 0; i < rows.length; i++) {
+        roleIds.push(rows[i].id)
+      }
+      this.selectIds = roleIds;
+    },
     assignSizeChange(size){
       this.roleVo.pageSize = size;
       this.getAssignRoleList(this.roleVo.pageNo, size);
@@ -429,8 +435,22 @@ export default {
     onAssignClose(){
       this.assignDialog.visible=false;
     },
-    onAssignConfirm() {
-      this.assignDialog.visible=false;
+    async onAssignConfirm() {
+      if (this.selectIds.length === 0){
+        this.$message.warning("请选择要分配的角色");
+        return;
+      }
+      let params = {
+        userId: this.selectedUserId,
+        roleIds: this.selectIds,
+      };
+      let res = await userApi.assignRoleSave(params);
+      if (res.success) {
+        this.$message.success(res.message);
+        this.assignDialog.visible= false;
+      }else {
+      this.$message.error(res.message);
+      }
     },
     onClose(){
       this.userDialog.visible=false;
