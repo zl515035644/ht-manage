@@ -5,8 +5,30 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ef6e2cc0-f2d9-4699-a957-32c78e1f7645" name="更改" comment="更改">
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crs-vue/src/api/group.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crs-vue/src/api/household.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crs-vue/src/api/huji.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crs-vue/src/api/information.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crs-vue/src/api/village.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crs-vue/src/views/ceshi/ceshi/ceshiList.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crs-vue/src/views/chaxun/zhonghe/zhongheList.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crs-vue/src/views/huji/chengyuan/chengyuanList.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crs-vue/src/views/huji/huji/hujiList.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crs-vue/src/views/huji/huzhu/huzhuList.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/crs-admin" beforeDir="false" afterPath="$PROJECT_DIR$/crs-admin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crs-vue/mock/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/crs-vue/mock/user.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crs-vue/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/crs-vue/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crs-vue/src/api/department.js" beforeDir="false" afterPath="$PROJECT_DIR$/crs-vue/src/api/department.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crs-vue/src/api/menu.js" beforeDir="false" afterPath="$PROJECT_DIR$/crs-vue/src/api/menu.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crs-vue/src/api/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/crs-vue/src/api/user.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crs-vue/src/layout/components/Sidebar/Logo.vue" beforeDir="false" afterPath="$PROJECT_DIR$/crs-vue/src/layout/components/Sidebar/Logo.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crs-vue/src/layout/components/Sidebar/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/crs-vue/src/layout/components/Sidebar/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crs-vue/src/settings.js" beforeDir="false" afterPath="$PROJECT_DIR$/crs-vue/src/settings.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crs-vue/src/utils/request.js" beforeDir="false" afterPath="$PROJECT_DIR$/crs-vue/src/utils/request.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crs-vue/src/views/system/role/roleList.vue" beforeDir="false" afterPath="$PROJECT_DIR$/crs-vue/src/views/system/role/roleList.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crs-vue/src/views/system/user/userList.vue" beforeDir="false" afterPath="$PROJECT_DIR$/crs-vue/src/views/system/user/userList.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,53 +70,53 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;JPA.DatabaseSchemaImportDialog&quot;: &quot;892b3c77-b921-44f7-9096-65c23d25d963&quot;,
-    &quot;Notification.DisplayName-DoNotAsk-Lombok plugin&quot;: &quot;Lombok plugin&quot;,
-    &quot;Notification.DoNotAsk-Lombok plugin&quot;: &quot;true&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;1.8&quot;,
-    &quot;last_opened_file_path&quot;: &quot;G:/ht-manage&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;2ed2a2c951197aa045a8977ec7aa0c17&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;D:\\Program Files (x86)\\java\\JetBrains\\IntelliJ IDEA 2022.2.3\\plugins\\JavaScriptLanguage\\jsLanguageServicesImpl\\external&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "JPA.DatabaseSchemaImportDialog": "892b3c77-b921-44f7-9096-65c23d25d963",
+    "Notification.DisplayName-DoNotAsk-Lombok plugin": "Lombok plugin",
+    "Notification.DoNotAsk-Lombok plugin": "true",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "jdk.selected.JAVA_MODULE": "1.8",
+    "last_opened_file_path": "G:/workspace/vue-admin-template",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "Errors",
+    "spring.configuration.checksum": "2ed2a2c951197aa045a8977ec7aa0c17",
+    "ts.external.directory.path": "D:\\Program Files (x86)\\java\\JetBrains\\IntelliJ IDEA 2022.2.3\\plugins\\JavaScriptLanguage\\jsLanguageServicesImpl\\external",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;ChangesTree.GroupingKeys&quot;: [
-      &quot;directory&quot;,
-      &quot;module&quot;,
-      &quot;repository&quot;
+  "keyToStringList": {
+    "ChangesTree.GroupingKeys": [
+      "directory",
+      "module",
+      "repository"
     ],
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mysql&quot;
+    "DatabaseDriversLRU": [
+      "mysql"
     ]
   }
-}</component>
+}]]></component>
   <component name="ReactorSettings">
     <option name="notificationShown" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="G:\ht-manage\crs-vue\src\views\system\user" />
       <recent name="G:\ht-manage\crs-vue\src\api" />
+      <recent name="G:\ht-manage\crs-vue\src\views\system\user" />
       <recent name="G:\ht-manage\crs-admin\src\main\java\com\ht\entity" />
       <recent name="G:\ht-manage\crs-admin\src\main\java\com\ht\utils" />
       <recent name="G:\ht-manage\crs-admin\src\main\java\com\ht\controller" />
@@ -109,10 +131,14 @@
       <recent name="com.ht.entity" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.ht.service.impl" />
+      <recent name="com.ht.service" />
       <recent name="com.ht.vo.query" />
+      <recent name="com.ht.controller" />
+      <recent name="com.ht.utils" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.dev">
+  <component name="RunManager" selected="Spring Boot.CrsAdminApplication">
     <configuration name="GeneratorCode" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.ht.run.GeneratorCode" />
       <module name="crs-admin" />
@@ -192,8 +218,9 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="npm.dev" />
         <item itemvalue="Spring Boot.CrsAdminApplication" />
+        <item itemvalue="npm.dev" />
+        <item itemvalue="Application.GeneratorCode" />
         <item itemvalue="Maven.crs-admin [clean]" />
         <item itemvalue="JUnit.CrsMessageApplicationTests.contextLoads" />
       </list>
@@ -233,7 +260,20 @@
       <workItem from="1684411635198" duration="7175000" />
       <workItem from="1684418875899" duration="1623000" />
       <workItem from="1684481235411" duration="13471000" />
-      <workItem from="1684667810987" duration="52335000" />
+      <workItem from="1684667810987" duration="53429000" />
+      <workItem from="1684845542297" duration="3548000" />
+      <workItem from="1684929309568" duration="4062000" />
+      <workItem from="1685001051940" duration="9389000" />
+      <workItem from="1685105490455" duration="17760000" />
+      <workItem from="1685449514093" duration="18481000" />
+      <workItem from="1685884018234" duration="35753000" />
+      <workItem from="1686139847540" duration="4540000" />
+      <workItem from="1686471255906" duration="39689000" />
+      <workItem from="1686916738032" duration="14259000" />
+      <workItem from="1687780569192" duration="6815000" />
+      <workItem from="1687869023287" duration="41076000" />
+      <workItem from="1688388667445" duration="6890000" />
+      <workItem from="1688464331094" duration="76197000" />
     </task>
     <task id="LOCAL-00001" summary="提交">
       <created>1683466816893</created>
@@ -333,7 +373,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684796274188</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="更改">
+      <created>1684797044388</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1684797044390</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

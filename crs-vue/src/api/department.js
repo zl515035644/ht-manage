@@ -7,6 +7,7 @@ import http from '@/utils/request'
  */
 export default {
   async getDepartmentList(params){
+    console.log(params + "这是前端getDepartmentList传过来的数据")
     return http.get("/api/department/List", params);
   },
   async getParentTreeList(){

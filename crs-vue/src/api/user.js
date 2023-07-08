@@ -21,6 +21,7 @@ export async function getMenuList() {
 
 export default {
   async getUserList(params) {
+
     return http.get("/api/user/list", params);
   },
   async addUser(params) {

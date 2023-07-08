@@ -7,7 +7,8 @@
       <el-form-item>
         <el-button type="primary" icon="el-icon-search" @click="search(pageNo,pageSize)">查询</el-button>
         <el-button icon="el-icon-refresh-right"@click="resetValue()">重置</el-button>
-        <el-button icon="el-icon-plus" type="success" @click="openAddWindow()">新增</el-button>
+        <el-button icon="el-icon-plus" type="success"
+                   @click="openAddWindow()">新增</el-button>
       </el-form-item>
     </el-form>
     <el-table
@@ -22,9 +23,12 @@
       <el-table-column prop="remark" label="角色备注" />
       <el-table-column label="操作" width="290" align="center" >
         <template slot-scope="scope">
-          <el-button icon="el-icon-edit" type="primary" size="small" @click="handleEdit(scope.row)">编辑</el-button>
-          <el-button icon="el-icon-delete" type="danger" size="small" @click="handleDelete(scope.row)">删除</el-button>
-          <el-button icon="el-icon-setting" type="primary"size="small" @click="assignRole(scope.row)">分配权限</el-button>
+          <el-button icon="el-icon-edit" type="primary" size="small"
+                     @click="handleEdit(scope.row)">编辑</el-button>
+          <el-button icon="el-icon-delete" type="danger" size="small"
+                     @click="handleDelete(scope.row)">删除</el-button>
+          <el-button icon="el-icon-setting" type="primary"size="small"
+                     @click="assignRole(scope.row)">分配权限</el-button>
         </template>
       </el-table-column>
     </el-table>

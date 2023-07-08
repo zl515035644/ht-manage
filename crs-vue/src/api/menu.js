@@ -7,6 +7,7 @@ import http from '@/utils/request';
  */
 export default {
   async getMenuList(params){
+    console.log(params + "这是前端Menu传过来的数据")
     return http.get('/api/permission/list', params);
   },
   async getParentMenuList(params){

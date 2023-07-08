@@ -1,5 +1,4 @@
 <template>
-
     <el-container :style="{height: containerHeight + 'px'}">
       <!-- 左侧菜单树 -->
       <el-aside style="padding: 10px 0 0 0; background: #fff; border-right: #dfe6ec" width="220px">
@@ -43,7 +42,7 @@
           </el-form-item>
           <el-form-item>
             <el-button icon="el-icon-search" type="primary"
-                       @click="search(departmentId, pageNo, pageSize)">查询</el-button>
+                         @click="search(departmentId, pageNo, pageSize)">查询</el-button>
             <el-button icon="el-icon-delete" @click="resetValue()">重置</el-button>
             <el-button icon="el-icon-plus" type="primary"
                        @click="openAddWindow()">新增</el-button>
@@ -305,8 +304,14 @@ export default {
     })
   },
   methods:{
+    /**
+     * 查询部门列表
+     * @returns {Promise<void>}
+     */
     async getDeptList(){
+      //发送查询请求
       let res = await departmentApi.getDepartmentList(null);
+
       if (res.success) {
         this.deptList = res.data;
         this.$nextTick(() => {
@@ -315,7 +320,12 @@ export default {
         })
       }
     },
+    /**
+     * 点击树节点加减号时触发
+     * @param data
+     */
     changeIcon(data) {
+      //修改为折叠状态
       data.open = !data.open;
       this.$refs.leftTree.store.nodesMap[data.id].expanded = !data.open;
     },
@@ -323,6 +333,10 @@ export default {
       data.open = !data.open;
       this.$refs.parentTree.store.nodesMap[data.id].expanded = !data.open;
     },
+    /**
+     * 树节点点击事件
+     * @param data
+     */
     handleNodeClick(data){
       this.departmentId = data.id;
       this.search(this.departmentId);
@@ -331,8 +345,11 @@ export default {
       this.searchModel.pageNo = pageNo;
       this.searchModel.pageSize = pageSize;
       this.searchModel.departmentId = departmentId;
+      console.log(departmentId)
       let res = await userApi.getUserList(this.searchModel);
+      console.log(res)
       if (res.success) {
+        console.log(res)
         this.userList = res.data.records;
         this.total = res.data.total;
       }
