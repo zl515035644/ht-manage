@@ -159,6 +159,7 @@ export default {
   },
   methods: {
     async getVillageList(){
+      console.log("/api/village/villageId这是第一步选择户主信息，返回村列表")
       //查询村列表
       let res = await villageApi.getGroupListByVillageId(this.formInline)
 

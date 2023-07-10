@@ -5,30 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ef6e2cc0-f2d9-4699-a957-32c78e1f7645" name="更改" comment="更改">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/crs-vue/src/api/group.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/crs-vue/src/api/household.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/crs-vue/src/api/huji.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/crs-vue/src/api/information.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/crs-vue/src/api/village.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/crs-vue/src/views/ceshi/ceshi/ceshiList.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/crs-vue/src/views/chaxun/zhonghe/zhongheList.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/crs-vue/src/views/huji/chengyuan/chengyuanList.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/crs-vue/src/views/huji/huji/hujiList.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/crs-vue/src/views/huji/huzhu/huzhuList.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/crs-admin" beforeDir="false" afterPath="$PROJECT_DIR$/crs-admin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crs-vue/mock/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/crs-vue/mock/user.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crs-vue/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/crs-vue/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crs-vue/src/api/department.js" beforeDir="false" afterPath="$PROJECT_DIR$/crs-vue/src/api/department.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crs-vue/src/api/menu.js" beforeDir="false" afterPath="$PROJECT_DIR$/crs-vue/src/api/menu.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crs-vue/src/api/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/crs-vue/src/api/user.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crs-vue/src/layout/components/Sidebar/Logo.vue" beforeDir="false" afterPath="$PROJECT_DIR$/crs-vue/src/layout/components/Sidebar/Logo.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crs-vue/src/layout/components/Sidebar/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/crs-vue/src/layout/components/Sidebar/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crs-vue/src/settings.js" beforeDir="false" afterPath="$PROJECT_DIR$/crs-vue/src/settings.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crs-vue/src/utils/request.js" beforeDir="false" afterPath="$PROJECT_DIR$/crs-vue/src/utils/request.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crs-vue/src/views/system/role/roleList.vue" beforeDir="false" afterPath="$PROJECT_DIR$/crs-vue/src/views/system/role/roleList.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crs-vue/src/views/system/user/userList.vue" beforeDir="false" afterPath="$PROJECT_DIR$/crs-vue/src/views/system/user/userList.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crs-vue/src/api/information.js" beforeDir="false" afterPath="$PROJECT_DIR$/crs-vue/src/api/information.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crs-vue/src/views/chaxun/zhonghe/zhongheList.vue" beforeDir="false" afterPath="$PROJECT_DIR$/crs-vue/src/views/chaxun/zhonghe/zhongheList.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crs-vue/src/views/huji/chengyuan/chengyuanList.vue" beforeDir="false" afterPath="$PROJECT_DIR$/crs-vue/src/views/huji/chengyuan/chengyuanList.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crs-vue/src/views/huji/huzhu/huzhuList.vue" beforeDir="false" afterPath="$PROJECT_DIR$/crs-vue/src/views/huji/huzhu/huzhuList.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -138,7 +120,7 @@
       <recent name="com.ht.utils" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.CrsAdminApplication">
+  <component name="RunManager" selected="npm.dev">
     <configuration name="GeneratorCode" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.ht.run.GeneratorCode" />
       <module name="crs-admin" />
@@ -218,8 +200,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Spring Boot.CrsAdminApplication" />
         <item itemvalue="npm.dev" />
+        <item itemvalue="Spring Boot.CrsAdminApplication" />
         <item itemvalue="Application.GeneratorCode" />
         <item itemvalue="Maven.crs-admin [clean]" />
         <item itemvalue="JUnit.CrsMessageApplicationTests.contextLoads" />
@@ -273,7 +255,7 @@
       <workItem from="1687780569192" duration="6815000" />
       <workItem from="1687869023287" duration="41076000" />
       <workItem from="1688388667445" duration="6890000" />
-      <workItem from="1688464331094" duration="76197000" />
+      <workItem from="1688464331094" duration="122236000" />
     </task>
     <task id="LOCAL-00001" summary="提交">
       <created>1683466816893</created>
@@ -380,7 +362,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684797044390</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="更改">
+      <created>1688859233193</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1688859233193</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

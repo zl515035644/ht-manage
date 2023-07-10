@@ -39,26 +39,18 @@
       style="height: 65%">
       <el-tab-pane label="家庭成员" name="first">
         <el-table
-          :data="tableData"
+          :data="informationList"
           max-height="100%"
           border
           :header-cell-style="{'text-align':'center'}"
           style="width: 100%">
-          <el-table-column prop="basicMemberId" label="成员编号" width="180" align="center"></el-table-column>
-          <el-table-column prop="basicMemberName" label="成员姓名" width="120" align="center"></el-table-column>
-          <el-table-column prop="basicIdentityId" label="身份证号" width="165" align="center"></el-table-column>
-          <el-table-column prop="basicRelation" label="关系" width="80" align="center"></el-table-column>
-          <el-table-column prop="basicGender" label="性别" width="50" align="center"></el-table-column>
-          <el-table-column prop="basicMianmiao" label="政治面貌" width="85" align="center"></el-table-column>
-          <el-table-column prop="basicAge" label="年龄" width="50" align="center"></el-table-column>
-          <el-table-column prop="basicNation" label="民族" width="65" align="center"></el-table-column>
-          <el-table-column prop="basicEducation" label="学历" width="80" align="center"></el-table-column>
-          <el-table-column prop="basicBirthday" label="出生日期" width="95" align="center"></el-table-column>
-          <el-table-column prop="basicTelephone" label="联系电话" width="110" align="center"></el-table-column>
-          <el-table-column prop="name" label="养老保险" width="80" align="center"></el-table-column>
-          <el-table-column prop="name" label="高龄补贴" width="80" align="center"></el-table-column>
-          <el-table-column prop="name" label="人员类别" width="80" align="center"></el-table-column>
-          <el-table-column prop="name" label="是否外出" width="80" align="center"></el-table-column>
+          <el-table-column prop="basicMemberId" label="成员编号" ></el-table-column>
+          <el-table-column prop="basicMemberName" label="成员姓名" ></el-table-column>
+          <el-table-column prop="basicRelation" label="与户主关系" ></el-table-column>
+          <el-table-column prop="basicIdentityId" label="身份证号码" width="290"></el-table-column>
+          <el-table-column prop="basicTelephone" label="联系电话" ></el-table-column>
+          <el-table-column prop="basicAge" label="年龄" ></el-table-column>
+          <el-table-column prop="basicNation" label="民族" ></el-table-column>
           <el-table-column align="center" label="操作">
             <template slot-scope="scope">
               <el-button icon="el-icon-edit" type="primary" size="mini"
@@ -92,27 +84,14 @@ export default {
     return {
       formInline: {
 
-        basicIdentityId: "152323199012262734",
+        basicIdentityId: "",
 
       },
-      household:[],
+      household: [],
+      informationList: [],
       basicHouseholdName:"",
       basicIdentityId:"",
       activeName: 'first',
-      tableData: [{
-        basicMemberId: "",
-        basicMemberName:"",
-        basicRelation: "",
-        basicGender: "",
-        basicAge: "",
-        basicBirthday: "",
-        basicIdentityId: "",
-        basicTelephone: "",
-        basicNation: "",
-        basicEducation: "",
-        basicMianmiao: "",
-
-      }]
     }
 
   },
@@ -122,11 +101,13 @@ export default {
   },
   methods: {
     async search() {
-      let res = await informationApi.InformationById(this.formInline);
-      console.log(res.data.household.basicHouseholdName)
-     if (res.success) {
-        this.basicHouseholdName = res.data.household.basicHouseholdName;
-     }
+      if (this.basicIdentityId != null){
+        let res = await informationApi.InformationById(this.formInline);
+        if (res.success) {
+          this.informationList = res.data
+          this.basicHouseholdName = res.data[0]?.household?.basicHouseholdName;
+        }
+      }
     },
     handleClick(tab, event) {
       console.log(tab, event);

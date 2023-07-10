@@ -24,7 +24,7 @@
         border
         stripe
         style="width: 100%; margin-bottom: 10px">
-        <el-table-column  prop="basicMemberId" label="成员编号" ></el-table-column>
+        <el-table-column prop="basicMemberId" label="成员编号" ></el-table-column>
         <el-table-column prop="basicMemberName" label="成员姓名" ></el-table-column>
         <el-table-column prop="basicRelation" label="与户主关系" ></el-table-column>
         <el-table-column prop="basicIdentityId" label="身份证号码" width="290"></el-table-column>
